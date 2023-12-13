@@ -10,23 +10,27 @@ import SwiftUI
 struct TravelAppMainView: View {
     
     @Environment(TravelAppViewModel.self) private var viewModel
+    @State private var path = NavigationPath()
     
     var body: some View {
         
         NavigationStack {
             VStack(alignment: .leading, spacing: 16) {
                 HeaderView()
-                NavigationStack {
+                NavigationStack(path: $path) { 
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyVGrid(columns: viewModel.layout) {
                             ForEach(viewModel.destinations) { destination in
-                                NavigationLink(destination: DestinationDetailView(destination: destination)) {
+                                NavigationLink(value: destination, label: {
                                     TravelCardView(
                                         imageName: destination.mainImage,
                                         destinationName: destination.cityName,
                                         countryName: destination.country,
                                         rating: destination.rating
                                     )
+                                })
+                                .navigationDestination(for: Destination.self) { destination in
+                                    DestinationDetailView(destination: destination, path: $path)
                                 }
                             }
                         }

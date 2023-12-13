@@ -14,6 +14,7 @@ import SwiftUI
 class TravelAppViewModel {
     var destinations: [Destination] = []
     var error: String?
+    var path = NavigationPath()
     
     let layout = [
         GridItem(.flexible()),
