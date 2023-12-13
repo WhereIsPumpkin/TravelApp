@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TravelCardView: View {
-    var imageName: String // Variable for the image name
-    var destinationName: String // Variable for the destination name
-    var countryName: String // Variable for the country name
-    var rating: Double // Variable for the rating
+    var imageName: String 
+    var destinationName: String
+    var countryName: String
+    var rating: Double
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -22,14 +22,7 @@ struct TravelCardView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
             
             HStack {
-                VStack(alignment: .leading) {
-                    Text(destinationName)
-                        .font(.system(size: 15, weight: .semibold))
-                        .foregroundColor(Color("textColor"))
-                    Text(countryName)
-                        .font(.system(size: 11, weight: .light))
-                        .foregroundColor(Color("textColor"))
-                }
+                VStackTextView(title: destinationName, subTitle: countryName, titleFont: 15, subTitleFont: 11, alignmentAxe: .leading, titleWeight: .semibold, subTitleWeight: .light)
                 
                 Spacer()
                 
