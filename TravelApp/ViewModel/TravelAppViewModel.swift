@@ -36,4 +36,8 @@ class TravelAppViewModel {
             }
         })
     }
+    
+    func getRandomTravelTip() -> String {
+           return travelTips.randomElement() ?? "Enjoy your trip!"
+    }
 }
