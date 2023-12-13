@@ -11,14 +11,18 @@ struct DestinationsData: Codable {
     let destinations: [Destination]
 }
 
-struct Destination: Codable {
+struct Destination: Codable, Identifiable {
+    let id: Int
     let cityName: String
+    let country: String
     let mainImage: String
     let description: String
     let generalImages: [String]
     let transport: [Transport]
     let mustSee: [MustSee]
     let hotels: [Hotel]
+    let isTrending: Bool
+    let rating: Double
 }
 
 struct Transport: Codable {
@@ -39,7 +43,3 @@ struct Hotel: Codable {
     let name: String
     let description: String
 }
-
-
-
-

@@ -7,22 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7591EC182B2A2EE3000162F7 /* TravelCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591EC172B2A2EE3000162F7 /* TravelCardView.swift */; };
+		7591EC1A2B2A3BD5000162F7 /* DestinationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591EC192B2A3BD5000162F7 /* DestinationDetailView.swift */; };
 		75D361B62B29CE7E00625B85 /* TravelAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D361B52B29CE7E00625B85 /* TravelAppApp.swift */; };
-		75D361B82B29CE7E00625B85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D361B72B29CE7E00625B85 /* ContentView.swift */; };
+		75D361B82B29CE7E00625B85 /* TravelAppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D361B72B29CE7E00625B85 /* TravelAppMainView.swift */; };
 		75D361BA2B29CE7E00625B85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D361B92B29CE7E00625B85 /* Assets.xcassets */; };
 		75D361BD2B29CE7E00625B85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D361BC2B29CE7E00625B85 /* Preview Assets.xcassets */; };
 		75D361C42B29EB4F00625B85 /* DestinationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D361C32B29EB4F00625B85 /* DestinationModel.swift */; };
 		75D361C72B29F52D00625B85 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D361C62B29F52D00625B85 /* HeaderView.swift */; };
+		75D361CD2B29F6D300625B85 /* NetSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 75D361CC2B29F6D300625B85 /* NetSwift */; };
+		75D361CF2B29F6F700625B85 /* TravelAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D361CE2B29F6F700625B85 /* TravelAppViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7591EC172B2A2EE3000162F7 /* TravelCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelCardView.swift; sourceTree = "<group>"; };
+		7591EC192B2A3BD5000162F7 /* DestinationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetailView.swift; sourceTree = "<group>"; };
 		75D361B22B29CE7E00625B85 /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D361B52B29CE7E00625B85 /* TravelAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppApp.swift; sourceTree = "<group>"; };
-		75D361B72B29CE7E00625B85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		75D361B72B29CE7E00625B85 /* TravelAppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppMainView.swift; sourceTree = "<group>"; };
 		75D361B92B29CE7E00625B85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75D361BC2B29CE7E00625B85 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		75D361C32B29EB4F00625B85 /* DestinationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationModel.swift; sourceTree = "<group>"; };
 		75D361C62B29F52D00625B85 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		75D361CE2B29F6F700625B85 /* TravelAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D361CD2B29F6D300625B85 /* NetSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,12 +63,13 @@
 		75D361B42B29CE7E00625B85 /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				75D361C82B29F68900625B85 /* App */,
+				75D361B72B29CE7E00625B85 /* TravelAppMainView.swift */,
 				75D361C52B29F51F00625B85 /* Views */,
-				75D361B52B29CE7E00625B85 /* TravelAppApp.swift */,
-				75D361B72B29CE7E00625B85 /* ContentView.swift */,
+				75D361CA2B29F69E00625B85 /* ViewModel */,
+				75D361C92B29F69900625B85 /* Model */,
 				75D361B92B29CE7E00625B85 /* Assets.xcassets */,
 				75D361BB2B29CE7E00625B85 /* Preview Content */,
-				75D361C32B29EB4F00625B85 /* DestinationModel.swift */,
 			);
 			path = TravelApp;
 			sourceTree = "<group>";
@@ -77,8 +86,34 @@
 			isa = PBXGroup;
 			children = (
 				75D361C62B29F52D00625B85 /* HeaderView.swift */,
+				7591EC172B2A2EE3000162F7 /* TravelCardView.swift */,
+				7591EC192B2A3BD5000162F7 /* DestinationDetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		75D361C82B29F68900625B85 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				75D361B52B29CE7E00625B85 /* TravelAppApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		75D361C92B29F69900625B85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75D361C32B29EB4F00625B85 /* DestinationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		75D361CA2B29F69E00625B85 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				75D361CE2B29F6F700625B85 /* TravelAppViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +132,9 @@
 			dependencies = (
 			);
 			name = TravelApp;
+			packageProductDependencies = (
+				75D361CC2B29F6D300625B85 /* NetSwift */,
+			);
 			productName = TravelApp;
 			productReference = 75D361B22B29CE7E00625B85 /* TravelApp.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +163,9 @@
 				Base,
 			);
 			mainGroup = 75D361A92B29CE7E00625B85;
+			packageReferences = (
+				75D361CB2B29F6D300625B85 /* XCRemoteSwiftPackageReference "SwiftNet" */,
+			);
 			productRefGroup = 75D361B32B29CE7E00625B85 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -151,7 +192,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75D361B82B29CE7E00625B85 /* ContentView.swift in Sources */,
+				75D361CF2B29F6F700625B85 /* TravelAppViewModel.swift in Sources */,
+				75D361B82B29CE7E00625B85 /* TravelAppMainView.swift in Sources */,
+				7591EC182B2A2EE3000162F7 /* TravelCardView.swift in Sources */,
+				7591EC1A2B2A3BD5000162F7 /* DestinationDetailView.swift in Sources */,
 				75D361B62B29CE7E00625B85 /* TravelAppApp.swift in Sources */,
 				75D361C42B29EB4F00625B85 /* DestinationModel.swift in Sources */,
 				75D361C72B29F52D00625B85 /* HeaderView.swift in Sources */,
@@ -360,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		75D361CB2B29F6D300625B85 /* XCRemoteSwiftPackageReference "SwiftNet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WhereIsPumpkin/SwiftNet";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		75D361CC2B29F6D300625B85 /* NetSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75D361CB2B29F6D300625B85 /* XCRemoteSwiftPackageReference "SwiftNet" */;
+			productName = NetSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 75D361AA2B29CE7E00625B85 /* Project object */;
 }

@@ -12,7 +12,7 @@ struct HeaderView: View {
         HStack {
             Image(systemName: "globe.europe.africa.fill")
                 .font(.title)
-                .foregroundStyle(Color("mainGreen"))
+                .foregroundStyle(Color(red: 0.26, green: 0.35, blue: 0.52))
             
             Spacer()
             
@@ -27,7 +27,7 @@ struct HeaderView: View {
             .foregroundColor(.black)
         + Text("vacation")
             .font(.system(size: 28, weight: .bold))
-            .foregroundColor(Color("mainGreen"))
+            .foregroundColor(Color(red: 0.26, green: 0.35, blue: 0.52))
         + Text(" with us!")
             .font(.system(size: 28, weight: .bold))
             .foregroundColor(.black)
