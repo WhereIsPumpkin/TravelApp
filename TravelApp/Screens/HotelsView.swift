@@ -10,48 +10,45 @@ import SwiftUI
 struct HotelsView: View {
     var destination: Destination
     @Binding var path: NavigationPath
-
+    
     var body: some View {
         VStack {
             Image("hotel")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: .infinity, height: 230)
-                .clipped()
-
-            Text("Explore Our Hotels")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top, 20)
-
-            ScrollView {
-                ForEach(destination.hotels, id: \.self) { hotel in
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack {
-                            Image(systemName: "building.fill") 
-                                .foregroundColor(Color("textColor"))
-                                .font(.title2)
-
-                            VStack(alignment: .leading) {
-                                Text(hotel.name)
-                                    .font(.headline)
-                                    .foregroundColor(.primary)
-                                Text(hotel.description)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-
-                            Spacer()
+            
+            List(destination.hotels, id: \.self) { hotel in
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        
+                        Image(systemName: "building.fill")
+                            .foregroundColor(Color("textColor"))
+                            .font(.title)
+                        
+                        VStack(alignment: .leading) {
+                            Text(hotel.name)
+                                .font(.headline)
+                                .foregroundColor(.primary)
+                            Text(hotel.description)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
                         }
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .shadow(radius: 2)
+                        
+                        Spacer()
                     }
-                    .padding(.horizontal)
+                    .padding(.vertical, 5)
                 }
+                .padding(.horizontal)
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 3)
+                
             }
-
+            .listStyle(InsetGroupedListStyle())
+            
+            
+            
             Button(action: {
                 path = NavigationPath()
             }, label: {
@@ -64,7 +61,8 @@ struct HotelsView: View {
                     .shadow(radius: 5)
             })
             .padding()
-
+            
+            
             Spacer()
         }
         .ignoresSafeArea()

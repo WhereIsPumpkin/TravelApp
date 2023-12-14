@@ -11,43 +11,43 @@ import SwiftUI
 struct MustSeeView: View {
     var destination: Destination
     @Binding var path: NavigationPath
-
+    
     var body: some View {
         VStack {
             Image("mustSee")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: .infinity, height: 230)
-                .clipped()
-
-            ScrollView {
-                ForEach(destination.mustSee, id: \.self) { attraction in
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack {
-                            Image(systemName: "star.fill") // Icon representing the attraction
-                                .foregroundColor(Color("textColor"))
-                                .font(.title2)
-
-                            VStack(alignment: .leading) {
-                                Text(attraction.name)
-                                    .font(.headline)
-                                    .foregroundColor(.primary)
-                                Text(attraction.description)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-
-                            Spacer()
+            
+            List(destination.mustSee, id: \.self) { mustSee in
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        
+                        Image(systemName: "building.columns.fill")
+                            .foregroundColor(Color("textColor"))
+                            .font(.title)
+                        
+                        VStack(alignment: .leading) {
+                            Text(mustSee.name)
+                                .font(.headline)
+                                .foregroundColor(.primary)
+                            Text(mustSee.description)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
                         }
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .shadow(radius: 2)
+                        
+                        Spacer()
                     }
-                    .padding(.horizontal)
+                    .padding(.vertical, 5)
                 }
+                .padding(.horizontal)
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .shadow(radius: 3)
+                
             }
-            .background(Color(.systemGray6))
+            .listStyle(InsetGroupedListStyle())
+            
             
             
             Button(action: {
@@ -62,6 +62,9 @@ struct MustSeeView: View {
                     .shadow(radius: 5)
             })
             .padding()
+            
+            
+            Spacer()
         }
         .ignoresSafeArea()
     }
