@@ -16,7 +16,7 @@ struct TransportView: View {
             Image("public-transport")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: .infinity, height: 230)
+                .frame(maxWidth: .infinity, maxHeight: 230)
                 
             List(destination.transport, id: \.self) { transport in
                 VStack(alignment: .leading, spacing: 10) {
@@ -51,8 +51,6 @@ struct TransportView: View {
             }
             .listStyle(InsetGroupedListStyle())
 
-            
-            
             Button(action: {
                 path = NavigationPath()
             }, label: {

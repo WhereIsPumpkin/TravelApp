@@ -9,18 +9,23 @@ import SwiftUI
 
 struct TravelAppMainView: View {
     
+    // MARK: - Properties
     @Environment(TravelAppViewModel.self) private var viewModel
     @State private var path = NavigationPath()
     @State private var showAlert = false
     @State private var currentTip = ""
     
-    
+    // MARK: - Body
     var body: some View {
         
         NavigationStack {
             VStack(alignment: .leading, spacing: 16) {
+                
+                // MARK: - Header View
                 HeaderView()
                     .frame(minHeight: 75)
+                
+                // MARK: - Main Content
                 NavigationStack(path: $path) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyVGrid(columns: viewModel.layout) {
@@ -41,6 +46,7 @@ struct TravelAppMainView: View {
                     }
                 }
                 
+                // MARK: - Travel Tip Section
                 HStack {
                     Spacer()
                     Button("Get Travel Tip") {
@@ -58,6 +64,7 @@ struct TravelAppMainView: View {
                             dismissButton: .default(Text("OK"))
                         )
                     }
+                    
                     Spacer()
                 }
                 
@@ -69,13 +76,10 @@ struct TravelAppMainView: View {
                 viewModel.fetchDestinations()
             }
         }
-        
     }
-    
-    
-    
 }
 
+// MARK: - Preview
 #Preview {
     TravelAppMainView()
         .environment(TravelAppViewModel())

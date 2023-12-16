@@ -5,13 +5,12 @@
 //  Created by Saba Gogrichiani on 13.12.23.
 //
 
-import Foundation
 import NetSwift
-import Observation
 import SwiftUI
 
 @Observable
-class TravelAppViewModel {
+final class TravelAppViewModel {
+    // MARK: - Properties
     var destinations: [Destination] = []
     var error: String?
     var path = NavigationPath()
@@ -23,6 +22,12 @@ class TravelAppViewModel {
         GridItem(.flexible())
     ]
     
+    // MARK: - Initialization
+    init() {
+        fetchDestinations()
+    }
+    
+    // MARK: - Network Call
     func fetchDestinations() {
         let urlString = "https://mocki.io/v1/d840e078-32ab-4346-aa7d-d782841267c9"
         guard let URL = URL(string: urlString) else { return }
@@ -36,7 +41,8 @@ class TravelAppViewModel {
             }
         })
     }
-    
+
+    // MARK: - Utility Methods
     func getRandomTravelTip() -> String {
            return travelTips.randomElement() ?? "Enjoy your trip!"
     }

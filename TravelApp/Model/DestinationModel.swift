@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct DestinationsData: Codable {
+struct DestinationsData: Decodable {
     let destinations: [Destination]
 }
 
-struct Destination: Codable, Identifiable, Hashable {
+struct Destination: Decodable, Identifiable, Hashable {
     let id: Int
     let cityName: String
     let country: String
@@ -25,20 +25,20 @@ struct Destination: Codable, Identifiable, Hashable {
     let rating: Double
 }
 
-struct Transport: Codable, Hashable {
+struct Transport: Decodable, Hashable {
     let image: String
     let name: String
     let description: String
     let price: String
 }
 
-struct MustSee: Codable, Hashable {
+struct MustSee: Decodable, Hashable {
     let image: String
     let name: String
     let description: String
 }
 
-struct Hotel: Codable, Hashable {
+struct Hotel: Decodable, Hashable {
     let image: String
     let name: String
     let description: String

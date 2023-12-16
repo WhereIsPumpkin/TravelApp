@@ -17,7 +17,7 @@ struct MustSeeView: View {
             Image("mustSee")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: .infinity, height: 230)
+                .frame(maxWidth: .infinity, maxHeight: 230)
             
             List(destination.mustSee, id: \.self) { mustSee in
                 VStack(alignment: .leading, spacing: 10) {
@@ -47,9 +47,7 @@ struct MustSeeView: View {
                 
             }
             .listStyle(InsetGroupedListStyle())
-            
-            
-            
+                
             Button(action: {
                 path = NavigationPath()
             }, label: {

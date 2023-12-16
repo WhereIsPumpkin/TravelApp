@@ -16,7 +16,7 @@ struct HotelsView: View {
             Image("hotel")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: .infinity, height: 230)
+                .frame(maxWidth: .infinity, maxHeight: 230)
             
             List(destination.hotels, id: \.self) { hotel in
                 VStack(alignment: .leading, spacing: 10) {
@@ -47,8 +47,6 @@ struct HotelsView: View {
             }
             .listStyle(InsetGroupedListStyle())
             
-            
-            
             Button(action: {
                 path = NavigationPath()
             }, label: {
@@ -61,7 +59,6 @@ struct HotelsView: View {
                     .shadow(radius: 5)
             })
             .padding()
-            
             
             Spacer()
         }

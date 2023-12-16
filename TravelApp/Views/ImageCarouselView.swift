@@ -41,7 +41,6 @@ struct ImageCarouselView: View {
     }
 }
 
-// Usage Example
 #Preview {
     ImageCarouselView(images: ["image1", "image2", "image3"])
 }

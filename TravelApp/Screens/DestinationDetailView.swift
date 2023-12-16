@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct DestinationDetailView: View {
+    // MARK: - Properties
     var destination: Destination
-    @State private var selectedImageIndex = 0
     @Binding var path: NavigationPath
     
+    // MARK: - Body
     var body: some View {
         VStack(alignment: .leading) {
             ImageCarouselView(images: destination.generalImages)
@@ -36,36 +37,49 @@ struct DestinationDetailView: View {
                     Spacer()
                         .frame(height: 35)
                     
-                    VStack (spacing: 20) {
-                        NavigationLink(destination: TransportView(destination: destination, path: $path)) {
+                    VStack {
+                        NavigationLink(value: "transport") {
                             CustomButtonView(
-                                width: view.size.width - 44,
+                                width: UIScreen.main.bounds.width - 44,
                                 title: "Transport",
                                 systemImageName: "bus",
                                 color: Color("textColor")
                             )
                         }
+                        .buttonStyle(PlainButtonStyle())
                         
-                        NavigationLink(destination: MustSeeView(destination: destination, path: $path)) {
+                        NavigationLink(value: "mustSee") {
                             CustomButtonView(
-                                width: view.size.width - 44,
+                                width: UIScreen.main.bounds.width - 44,
                                 title: "Must See",
                                 systemImageName: "building.columns",
                                 color: Color(red: 0, green: 0.5, blue: 0.98)
                             )
                         }
                         
-                        NavigationLink(destination: HotelsView(destination: destination, path: $path)) {
+                        
+                        NavigationLink(value: "hotel") {
                             CustomButtonView(
-                                width: view.size.width - 44,
+                                width: UIScreen.main.bounds.width - 44,
                                 title: "Hotel",
                                 systemImageName: "building.fill",
                                 color: Color(red: 0.33, green: 0.59, blue: 1)
                             )
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
-                    
-                    
+                    .navigationDestination(for: String.self) { destinationName in
+                        switch destinationName {
+                        case "transport":
+                            TransportView(destination: destination, path: $path)
+                        case "mustSee":
+                            MustSeeView(destination: destination, path: $path)
+                        case "hotel":
+                            HotelsView(destination: destination, path: $path)
+                        default:
+                            EmptyView()
+                        }
+                    }
                     Spacer()
                 }
                 .padding(.horizontal, 22)
@@ -81,7 +95,7 @@ struct DestinationDetailView: View {
     }
 }
 
-
 #Preview {
     DestinationDetailView(destination: previewExample, path: .constant(NavigationPath()))
+        .environment(TravelAppViewModel())
 }
