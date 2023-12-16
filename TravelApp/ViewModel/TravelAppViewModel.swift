@@ -14,6 +14,8 @@ final class TravelAppViewModel {
     var destinations: [Destination] = []
     var error: String?
     var path = NavigationPath()
+    var showAlert = false
+    var currentTip = ""
     
     let layout = [
         GridItem(.flexible()),
@@ -21,6 +23,12 @@ final class TravelAppViewModel {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+    
+    enum NavigationTarget {
+        case transport
+        case mustSee
+        case hotel
+    }
     
     // MARK: - Initialization
     init() {

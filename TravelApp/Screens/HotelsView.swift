@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HotelsView: View {
     var destination: Destination
-    @Binding var path: NavigationPath
+    @Environment(TravelAppViewModel.self) private var viewModel
     
     var body: some View {
         VStack {
@@ -48,7 +48,7 @@ struct HotelsView: View {
             .listStyle(InsetGroupedListStyle())
             
             Button(action: {
-                path = NavigationPath()
+                viewModel.path = NavigationPath()
             }, label: {
                 Label("Go To HomePage", systemImage: "house.fill")
                     .font(.headline)
@@ -67,6 +67,7 @@ struct HotelsView: View {
 }
 
 #Preview {
-    HotelsView(destination: previewExample, path: .constant(NavigationPath()))
+    HotelsView(destination: previewExample)
+        .environment(TravelAppViewModel())
 }
 

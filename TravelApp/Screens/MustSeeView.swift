@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MustSeeView: View {
     var destination: Destination
-    @Binding var path: NavigationPath
+    @Environment(TravelAppViewModel.self) private var viewModel
     
     var body: some View {
         VStack {
@@ -49,7 +49,7 @@ struct MustSeeView: View {
             .listStyle(InsetGroupedListStyle())
                 
             Button(action: {
-                path = NavigationPath()
+                viewModel.path = NavigationPath()
             }, label: {
                 Label("Go To HomePage", systemImage: "house.fill")
                     .font(.headline)
@@ -69,5 +69,5 @@ struct MustSeeView: View {
 }
 
 #Preview {
-    MustSeeView(destination: previewExample, path: .constant(NavigationPath()))
+    MustSeeView(destination: previewExample)
 }

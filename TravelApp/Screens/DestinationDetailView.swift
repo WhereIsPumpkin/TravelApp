@@ -10,7 +10,6 @@ import SwiftUI
 struct DestinationDetailView: View {
     // MARK: - Properties
     var destination: Destination
-    @Binding var path: NavigationPath
     
     // MARK: - Body
     var body: some View {
@@ -38,7 +37,7 @@ struct DestinationDetailView: View {
                         .frame(height: 35)
                     
                     VStack {
-                        NavigationLink(value: "transport") {
+                        NavigationLink(value: TravelAppViewModel.NavigationTarget.transport) {
                             CustomButtonView(
                                 width: UIScreen.main.bounds.width - 44,
                                 title: "Transport",
@@ -48,7 +47,7 @@ struct DestinationDetailView: View {
                         }
                         .buttonStyle(PlainButtonStyle())
                         
-                        NavigationLink(value: "mustSee") {
+                        NavigationLink(value: TravelAppViewModel.NavigationTarget.mustSee) {
                             CustomButtonView(
                                 width: UIScreen.main.bounds.width - 44,
                                 title: "Must See",
@@ -57,8 +56,7 @@ struct DestinationDetailView: View {
                             )
                         }
                         
-                        
-                        NavigationLink(value: "hotel") {
+                        NavigationLink(value: TravelAppViewModel.NavigationTarget.hotel) {
                             CustomButtonView(
                                 width: UIScreen.main.bounds.width - 44,
                                 title: "Hotel",
@@ -68,16 +66,14 @@ struct DestinationDetailView: View {
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
-                    .navigationDestination(for: String.self) { destinationName in
-                        switch destinationName {
-                        case "transport":
-                            TransportView(destination: destination, path: $path)
-                        case "mustSee":
-                            MustSeeView(destination: destination, path: $path)
-                        case "hotel":
-                            HotelsView(destination: destination, path: $path)
-                        default:
-                            EmptyView()
+                    .navigationDestination(for: TravelAppViewModel.NavigationTarget.self) { navigationTarget in
+                        switch navigationTarget {
+                        case .transport:
+                            TransportView(destination: destination)
+                        case .mustSee:
+                            MustSeeView(destination: destination)
+                        case .hotel:
+                            HotelsView(destination: destination)
                         }
                     }
                     Spacer()
@@ -96,6 +92,6 @@ struct DestinationDetailView: View {
 }
 
 #Preview {
-    DestinationDetailView(destination: previewExample, path: .constant(NavigationPath()))
+    DestinationDetailView(destination: previewExample)
         .environment(TravelAppViewModel())
 }

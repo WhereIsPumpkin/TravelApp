@@ -11,12 +11,11 @@ struct TravelAppMainView: View {
     
     // MARK: - Properties
     @Environment(TravelAppViewModel.self) private var viewModel
-    @State private var path = NavigationPath()
-    @State private var showAlert = false
-    @State private var currentTip = ""
     
     // MARK: - Body
     var body: some View {
+        // მოკლედ აქ პრობლემა მქონდა შემდეგი: ამ ახალი @Enveironment ით დაჭერილ viewModelს binding-ად ვერ ვაწოდებდი შესაბამისად აღმოვაჩინე შემდეგი სოლუშენი: https://developer.apple.com/forums/thread/732658 როგორც მაგალითში ვნახე body-ში უწერია @Bindable სრულად დავარასერჩებ ამას. 
+        @Bindable var viewModel = viewModel
         
         NavigationStack {
             VStack(alignment: .leading, spacing: 16) {
@@ -26,7 +25,7 @@ struct TravelAppMainView: View {
                     .frame(minHeight: 75)
                 
                 // MARK: - Main Content
-                NavigationStack(path: $path) {
+                NavigationStack(path: $viewModel.path) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyVGrid(columns: viewModel.layout) {
                             ForEach(viewModel.destinations) { destination in
@@ -39,7 +38,7 @@ struct TravelAppMainView: View {
                                     )
                                 })
                                 .navigationDestination(for: Destination.self) { destination in
-                                    DestinationDetailView(destination: destination, path: $path)
+                                    DestinationDetailView(destination: destination)
                                 }
                             }
                         }
@@ -50,17 +49,17 @@ struct TravelAppMainView: View {
                 HStack {
                     Spacer()
                     Button("Get Travel Tip") {
-                        currentTip = viewModel.getRandomTravelTip()
-                        showAlert = true
+                        viewModel.currentTip = viewModel.getRandomTravelTip()
+                        viewModel.showAlert = true
                     }
                     .padding()
                     .background(Color("textColor"))
                     .foregroundColor(Color.white)
                     .cornerRadius(10)
-                    .alert(isPresented: $showAlert) {
+                    .alert(isPresented: $viewModel.showAlert) {
                         Alert(
                             title: Text("Travel Tip"),
-                            message: Text(currentTip),
+                            message: Text(viewModel.currentTip),
                             dismissButton: .default(Text("OK"))
                         )
                     }
