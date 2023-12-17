@@ -1,5 +1,5 @@
 //
-//  VStackTextView.swift
+//  TitleSubtitleComponentView.swift
 //  TravelApp
 //
 //  Created by Saba Gogrichiani on 14.12.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct VStackTextView: View {
+struct TitleSubtitleComponentView: View {
     
     var title: String
     var subTitle: String
@@ -30,5 +30,5 @@ struct VStackTextView: View {
 }
 
 #Preview {
-    VStackTextView(title: "Test", subTitle: "Test", titleFont: 15, subTitleFont: 11, alignmentAxe: .leading, titleWeight: .bold, subTitleWeight: .light)
+    TitleSubtitleComponentView(title: "Test", subTitle: "Test", titleFont: 15, subTitleFont: 11, alignmentAxe: .leading, titleWeight: .bold, subTitleWeight: .light)
 }

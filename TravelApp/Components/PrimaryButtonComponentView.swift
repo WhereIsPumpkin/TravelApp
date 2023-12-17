@@ -1,5 +1,5 @@
 //
-//  customButton.swift
+//  PrimaryButtonComponentView.swift
 //  TravelApp
 //
 //  Created by Saba Gogrichiani on 14.12.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomButtonView: View {
+struct PrimaryButtonComponentView: View {
     
     var width: CGFloat
     var title: String
@@ -25,5 +25,5 @@ struct CustomButtonView: View {
 }
 
 #Preview {
-    CustomButtonView(width: 200, title: "Transport", systemImageName: "bus", color: Color("textColor"))
+    PrimaryButtonComponentView(width: 200, title: "Transport", systemImageName: "bus", color: Color("textColor"))
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeaderView: View {
+struct HeaderComponentView: View {
     var body: some View {
         HStack {
             Image(systemName: "globe.europe.africa.fill")
@@ -35,5 +35,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView()
+    HeaderComponentView()
 }

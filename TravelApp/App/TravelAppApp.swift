@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct TravelAppApp: App {
-    @State var viewModel = TravelAppViewModel()
+    @State var viewModel = MainViewModel()
     
     var body: some Scene {
         WindowGroup {
-            TravelAppMainView()
-                .environment(viewModel)
+            MainView()
+                .environmentObject(viewModel)
         }
     }
 }

@@ -8,28 +8,19 @@
 import NetSwift
 import SwiftUI
 
-@Observable
-final class TravelAppViewModel {
+enum NavigationTarget {
+    case transports
+    case mustSeePlaces
+    case hotels
+}
+
+final class MainViewModel: ObservableObject {
     // MARK: - Properties
-    var destinations: [Destination] = []
-    var error: String?
-    var path = NavigationPath()
-    var showAlert = false
-    var currentTip = ""
-    
-    let layout = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
-    enum NavigationTarget {
-        case transport
-        case mustSee
-        case hotel
-    }
-    
+    @Published var destinations: [Destination] = []
+    @Published var error: String?
+    @Published var showAlert = false
+    @Published var currentTip = ""   
+
     // MARK: - Initialization
     init() {
         fetchDestinations()
@@ -52,6 +43,6 @@ final class TravelAppViewModel {
 
     // MARK: - Utility Methods
     func getRandomTravelTip() -> String {
-           return travelTips.randomElement() ?? "Enjoy your trip!"
+        TravelTipsMockData.travelTips.randomElement() ?? "Enjoy your trip!"
     }
 }
