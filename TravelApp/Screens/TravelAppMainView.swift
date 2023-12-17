@@ -14,7 +14,7 @@ struct TravelAppMainView: View {
     
     // MARK: - Body
     var body: some View {
-        // მოკლედ აქ პრობლემა მქონდა შემდეგი: ამ ახალი @Enveironment ით დაჭერილ viewModelს binding-ად ვერ ვაწოდებდი შესაბამისად აღმოვაჩინე შემდეგი სოლუშენი: https://developer.apple.com/forums/thread/732658 როგორც მაგალითში ვნახე body-ში უწერია @Bindable სრულად დავარასერჩებ ამას. 
+        // მოკლედ აქ პრობლემა მქონდა შემდეგი: ამ ახალი @Enveironment ით "დაჭერილ" viewModel-ის binding-ად ჩაწოდება არ შემეძლო, შესაბამისად აღმოვაჩინე შემდეგი სოლუშენი: https://developer.apple.com/forums/thread/732658, ამ შემთხვევაში body-ში გვიწერია რადგან  ჯერ ლოკალურად, რომ დავწეროთ body-ს გარეთ viewmodel-ის ინიციალიზაცია დამთავრებული არ ექნება და ვერ შევძლებთ. "Use this same approach when you need a binding to a property of an observable object stored in a view’s environment. https://developer.apple.com/documentation/swiftui/bindable
         @Bindable var viewModel = viewModel
         
         NavigationStack {
