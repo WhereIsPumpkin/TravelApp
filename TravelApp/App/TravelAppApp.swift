@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct TravelAppApp: App {
-    @State var viewModel = MainViewModel()
+    @StateObject var viewModel = MainViewModel()
     
     var body: some Scene {
         WindowGroup {

@@ -32,9 +32,6 @@ struct MainView: View {
             }
             .padding(24)
             .background(Color(red: 0.9, green: 0.97, blue: 1))
-            .onAppear {
-                viewModel.fetchDestinations()
-            }
         }
     }
     
